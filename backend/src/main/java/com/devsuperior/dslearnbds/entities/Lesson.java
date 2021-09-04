@@ -27,11 +27,11 @@ public abstract class Lesson implements Serializable {
 	private Long id;
 	private String title;
 	private Integer position;
-
+	
 	@ManyToOne
 	@JoinColumn(name = "section_id")
 	private Section section;
-
+	
 	@ManyToMany
 	@JoinTable(name = "tb_lessons_done",
 		joinColumns = @JoinColumn(name = "lesson_id"),
@@ -41,7 +41,7 @@ public abstract class Lesson implements Serializable {
 		}
 	)
 	private Set<Enrollment> enrollmentsDone = new HashSet<>();
-
+	
 	public Lesson() {
 	}
 
